@@ -42,7 +42,7 @@ variable "tags" {
 variable "aws_region" {
   type        = string
   description = "[Optional] AWS region for the provider and DynamoDB lookup"
-  default     = "us-east-1"
+  default     = "us-west-2"
 }
 
 variable "aws_accounts_table_name" {
@@ -55,4 +55,9 @@ variable "oidc_role_name" {
   type        = string
   description = "[Optional] IAM role name (must already exist in each target account) that the OIDC connector assumes"
   default     = "harness-oidc-role"
+}
+
+variable "account_name_search" {
+  type        = string
+  description = "[Required] Substring to match against the DynamoDB 'Name' column. Only matching accounts get a connector"
 }

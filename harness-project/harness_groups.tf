@@ -43,7 +43,7 @@ locals {
 }
 
 data "harness_platform_usergroup" "usergroup" {
-  depends_on = [ time_sleep.project_setup ]
+  depends_on = [time_sleep.project_setup]
   for_each = {
     for group in local.existing_groups : group.identifier => group
   }
