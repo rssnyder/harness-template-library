@@ -37,3 +37,22 @@ variable "tags" {
   description = "[Optional] Provide a Map of Tags to associate with the resources"
   default     = {}
 }
+
+# AWS Account Source Table
+variable "aws_region" {
+  type        = string
+  description = "[Optional] AWS region for the provider and DynamoDB lookup"
+  default     = "us-east-1"
+}
+
+variable "aws_accounts_table_name" {
+  type        = string
+  description = "[Required] DynamoDB table name containing the list of AWS account IDs to connect. See aws_connectors.tf for a test table you can create with the AWS CLI"
+  default     = "harness-aws-accounts"
+}
+
+variable "oidc_role_name" {
+  type        = string
+  description = "[Optional] IAM role name (must already exist in each target account) that the OIDC connector assumes"
+  default     = "harness-oidc-role"
+}
